@@ -34,15 +34,10 @@ def AnimeImg():
 
 def getBadgeAPI(value):
     if value == 'value1':
-        prompt = """
-        Add the image of [v] person with the following specifications:
-        The Eiffel Tower should be visible in the background, positioned as if the [v] is standing in front of it
-        The lighting should be consistent with the Eiffel Tower's surroundings
-        [v] should be scaled appropriately so that he appear to be standing in front of the Eiffel Tower
-        The image should be high resolution and suitable for use in a marketing campaign or print advertisement.
-        """
+        prompt = "painting of [v] person posing in front of Eiffel tower in black suit"
     elif value == 'value2':
-        prompt = "promt2" 
+        prompt = "beautiful painting of [v] person standing in front of eiffel tower" 
+        print(prompt)
     return replicate_ai_models.createBadge(prompt)
 if __name__ == '__main__':
     app.run()
