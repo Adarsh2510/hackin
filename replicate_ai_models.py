@@ -7,4 +7,5 @@ def enhanceImage (prompt):
     return outputUrl
 
 def createBadge (prompt):
+    # badge code here
     return "https://replicate.delivery/pbxt/Y2NOATxdmZaDB96at8EK3IPcQ0zEBfXvD75W2g1K6F7meY0QA/out-0.png"
