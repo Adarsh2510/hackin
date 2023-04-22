@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Review Central</title>
+</head>
+<body>
+	<h1>Review Central</h1>
+	<p>Images uploaded successfully! <br> Model Training in progress.... Will get Back to you once ready</p>
+
+
+    <h2>Play with Pre Trained data</h2>
+    
+	<label for="dropdown">Select a value:</label>
+	<select id="dropdown">
+		<option value="">--Select Prompt--</option>
+		<option value="value1">Eiffel tower badge</option>
+		<option value="value2">Value 2</option>
+		<option value="value3">Value 3</option>
+	</select>
+    <button onclick="getBadgeData()">Get the Badge</button>
+    Also Try: <button onclick="getEnhancedImage()">Enhance the Image</button>
+    <button onclick="getAnimeImg()">Create anime character</button>
+	<div id="output"></div>
+
+	<script>
+		function getBadgeData() {
+			var dropdown = document.getElementById("dropdown");
+			var selectedValue = dropdown.options[dropdown.selectedIndex].value;
+			if (selectedValue) {
+				var output = document.getElementById("output");
+				output.innerHTML = "Loading...";
+				var xhr = new XMLHttpRequest();
+				xhr.open("GET", "/getBadge/" + selectedValue);
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState === 4 && xhr.status === 200) {
+						output.innerHTML = xhr.responseText;
+					}
+				};
+				xhr.send();
+			}
+		}
+        function getEnhancedImage(){
+            var output = document.getElementById("output");
+				output.innerHTML = "Loading...";
+				var xhr = new XMLHttpRequest();
+				xhr.open("GET", "/getEnhancedImg/");
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState === 4 && xhr.status === 200) {
+						output.innerHTML = xhr.responseText;
+					}
+				};
+				xhr.send();
+        }
+        function getAnimeImg(){
+            var output = document.getElementById("output");
+				output.innerHTML = "Loading...";
+				var xhr = new XMLHttpRequest();
+				xhr.open("GET", "/getAnimeImg/");
+				xhr.onreadystatechange = function() {
+					if (xhr.readyState === 4 && xhr.status === 200) {
+						output.innerHTML = xhr.responseText;
+					}
+				};
+				xhr.send();
+        }
+	</script>
+
+</body>
+</html>

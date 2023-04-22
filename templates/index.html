@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Review Central</title>
+</head>
+<body>
+	<h1>Review Central</h1>
+	<p>Upload your Images below to see the Magic</p>
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+		<label for="images">Select Images:</label>
+		<input type="file" name="images" id="images" multiple><br><br>
+		<input type="submit" value="Train Model">
+	</form>
+</body>
+</html>
