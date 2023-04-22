@@ -8,6 +8,13 @@ def enhanceImage (input_image_path):
     )
     return outputUrl
 
+def createAnime (input_image_path):
+    outputUrl = replicate.run(
+    os.getenv('ANIME_MODEL'),
+    input={"image": open(input_image_path, "rb")}
+    )
+    return outputUrl
+
 def createBadge(prompt):
     # badge code here
     output = replicate.run(

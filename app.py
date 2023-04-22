@@ -15,7 +15,6 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-
 @app.route('/upload', methods=['POST'])
 def upload():
 
@@ -75,14 +74,16 @@ def api(value):
     response = getBadgeAPI(value)
     return f"<img src=\"{response}\"><img>"
 
-@app.route('/getEnhancedImg')
-def enhancedImg():
-    response = replicate_ai_models.enhanceImage()
+@app.route('/getEnhancedImg/<value>')
+def enhancedImg(value):
+    value = "ImageURL"
+    response = replicate_ai_models.enhanceImage(value)
     return f"<img src=\"{response}\"><img>"
 
-@app.route('/getAnimeImg')
-def AnimeImg():
-    response = replicate_ai_models.enhanceImage()
+@app.route('/getAnimeImg/<value>')
+def AnimeImg(value):
+    value = "ImageURL"
+    response = replicate_ai_models.createAnime(value)
     return f"<img src=\"{response}\"><img>"
 
 def getBadgeAPI(value):

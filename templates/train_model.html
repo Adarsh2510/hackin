@@ -24,7 +24,9 @@
 	</select>
     <button onclick="getBadgeData()">Get the Badge</button>
     Also Try: <button onclick="getEnhancedImage()">Enhance the Image</button>
-    <button onclick="getAnimeImg()">Create anime character</button>
+    <button onclick="getAnimeImg()">Create anime character</button> 
+    <label for="image-url">By Adding your Image link here</label>
+    <input type="text" id="image-url" name="image-url">
 	<div id="output"></div>
 
 	<script>
@@ -44,30 +46,41 @@
 				xhr.send();
 			}
 		}
+    </script>
+    <script>
+
         function getEnhancedImage(){
-            var output = document.getElementById("output");
-				output.innerHTML = "Loading...";
-				var xhr = new XMLHttpRequest();
-				xhr.open("GET", "/getEnhancedImg/");
-				xhr.onreadystatechange = function() {
-					if (xhr.readyState === 4 && xhr.status === 200) {
-						output.innerHTML = xhr.responseText;
-					}
-				};
-				xhr.send();
+            var inputValue = document.getElementById("image-url").value;
+            if (inputValue){
+                var output = document.getElementById("output");
+			    	output.innerHTML = "Loading...";
+			    	var xhr = new XMLHttpRequest();
+			    	xhr.open("GET", "/getEnhancedImg/" +  "sample");
+			    	xhr.onreadystatechange = function() {
+			    		if (xhr.readyState === 4 && xhr.status === 200) {
+			    			output.innerHTML = xhr.responseText;
+			    		}
+			    	};
+			    	xhr.send();
+                }
         }
+    </script>
+    <script>
         function getAnimeImg(){
-            var output = document.getElementById("output");
-				output.innerHTML = "Loading...";
-				var xhr = new XMLHttpRequest();
-				xhr.open("GET", "/getAnimeImg/");
-				xhr.onreadystatechange = function() {
-					if (xhr.readyState === 4 && xhr.status === 200) {
-						output.innerHTML = xhr.responseText;
-					}
-				};
-				xhr.send();
-        }
+            var inputValue = document.getElementById("image-url").value;
+            if (inputValue){
+                var output = document.getElementById("output");
+			    	output.innerHTML = "Loading...";
+			    	var xhr = new XMLHttpRequest();
+			    	xhr.open("GET", "/getAnimeImg/" + "sample");
+			    	xhr.onreadystatechange = function() {
+			    		if (xhr.readyState === 4 && xhr.status === 200) {
+			    			output.innerHTML = xhr.responseText;
+			    		}
+			    	};
+			    	xhr.send();
+                }
+            };
 	</script>
 
 </body>
